@@ -42,7 +42,18 @@ public class DemoApplication {
     @RequestMapping("/resource")
     public Map<String, Object> home() {
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("id", UUID.randomUUID().toString());
+        String log = "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] o.s.s.w.u.m.MediaTypeRequestMatcher      : Processing application/json\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] o.s.s.w.u.m.MediaTypeRequestMatcher      : application/json .isCompatibleWith application/json = true\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] o.s.s.w.u.matcher.NegatedRequestMatcher  : matches = false\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] o.s.s.w.util.matcher.AndRequestMatcher   : Did not match\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] o.s.s.w.s.HttpSessionRequestCache        : Request not saved as configured RequestMatcher did not match\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] o.s.s.w.a.ExceptionTranslationFilter     : Calling Authentication entry point.\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] s.w.a.DelegatingAuthenticationEntryPoint : Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] s.w.a.DelegatingAuthenticationEntryPoint : Match found! Executing org.springframework.security.config.annotation.web.configurers.HttpBasicConfigurer$HttpStatusEntryPoint@44bfe13d\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] w.c.HttpSessionSecurityContextRepository : SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.\n"
+            + "2015-04-22 09:44:24.025 DEBUG 5340 --- [nio-8080-exec-6] s.s.w.c.SecurityContextPersistenceFilter : SecurityContextHolder now cleared, as request processing completed";
+        
+        model.put("id", log);
         model.put("content", "Hello World");
         return model;
     }
